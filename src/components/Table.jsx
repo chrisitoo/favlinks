@@ -17,9 +17,9 @@ const TableBody = (props) => {
     const rows = props.linkData.map((row, index) => {
       return (
         <tr key={index}>
-          <td>{row.name}</td>
+          <td>{row.linkName}</td>
           <td>
-            <a href={row.URL}>{row.URL}</a>
+            <a href={row.linkURL}>{row.linkURL}</a>
           </td>
           <td>
             <button onClick={() => props.removeLink(index)}>Delete</button>
@@ -32,11 +32,11 @@ const TableBody = (props) => {
   }
 
 
-function Table(){
+function Table({linkData, removeLink}){
     return(
         <table>
         <TableHeader/>
-        <TableBody/>
+        <TableBody linkData ={linkData} removeLink = {removeLink}/>
         </table>
     )
 }
